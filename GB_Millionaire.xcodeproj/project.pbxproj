@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		FEF403A2276E3EBC0082276B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF403A1276E3EBC0082276B /* AppDelegate.swift */; };
 		FEF403A4276E3EBC0082276B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF403A3276E3EBC0082276B /* SceneDelegate.swift */; };
-		FEF403A6276E3EBC0082276B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF403A5276E3EBC0082276B /* ViewController.swift */; };
+		FEF403A6276E3EBC0082276B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF403A5276E3EBC0082276B /* MainVC.swift */; };
 		FEF403A9276E3EBC0082276B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEF403A7276E3EBC0082276B /* Main.storyboard */; };
 		FEF403AB276E3EBD0082276B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEF403AA276E3EBD0082276B /* Assets.xcassets */; };
 		FEF403AE276E3EBD0082276B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEF403AC276E3EBD0082276B /* LaunchScreen.storyboard */; };
+		FEF75331277099EE00C9FF08 /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF75330277099EE00C9FF08 /* GameVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FEF4039E276E3EBC0082276B /* GB_Millionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GB_Millionaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF403A1276E3EBC0082276B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEF403A3276E3EBC0082276B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FEF403A5276E3EBC0082276B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FEF403A5276E3EBC0082276B /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		FEF403A8276E3EBC0082276B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FEF403AA276E3EBD0082276B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEF403AD276E3EBD0082276B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FEF403AF276E3EBD0082276B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEF75330277099EE00C9FF08 /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +60,22 @@
 			children = (
 				FEF403A1276E3EBC0082276B /* AppDelegate.swift */,
 				FEF403A3276E3EBC0082276B /* SceneDelegate.swift */,
-				FEF403A5276E3EBC0082276B /* ViewController.swift */,
+				FEF7532F2770984300C9FF08 /* Controlles */,
 				FEF403A7276E3EBC0082276B /* Main.storyboard */,
 				FEF403AA276E3EBD0082276B /* Assets.xcassets */,
 				FEF403AC276E3EBD0082276B /* LaunchScreen.storyboard */,
 				FEF403AF276E3EBD0082276B /* Info.plist */,
 			);
 			path = GB_Millionaire;
+			sourceTree = "<group>";
+		};
+		FEF7532F2770984300C9FF08 /* Controlles */ = {
+			isa = PBXGroup;
+			children = (
+				FEF403A5276E3EBC0082276B /* MainVC.swift */,
+				FEF75330277099EE00C9FF08 /* GameVC.swift */,
+			);
+			path = Controlles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEF403A6276E3EBC0082276B /* ViewController.swift in Sources */,
+				FEF403A6276E3EBC0082276B /* MainVC.swift in Sources */,
 				FEF403A2276E3EBC0082276B /* AppDelegate.swift in Sources */,
+				FEF75331277099EE00C9FF08 /* GameVC.swift in Sources */,
 				FEF403A4276E3EBC0082276B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
