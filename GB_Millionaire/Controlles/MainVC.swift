@@ -8,16 +8,15 @@
 import UIKit
 
 class MainVC: UIViewController {
-
-    @IBOutlet weak var startButton: UIButton!
     
+    @IBOutlet var startButton: UIView!
     @IBOutlet weak var resultButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    
+    
 }
 
