@@ -137,7 +137,9 @@
                             <constraint firstItem="UUS-lq-fIZ" firstAttribute="leading" secondItem="jvX-zd-tUU" secondAttribute="leading" constant="10" id="zxa-zv-zxG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="LO2-jx-Vi8"/>
+                    <navigationItem key="navigationItem" id="LO2-jx-Vi8">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="7zo-0K-HMM"/>
+                    </navigationItem>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="answerButton1" destination="pq1-pR-jTY" id="fYV-I8-g58"/>
@@ -171,7 +173,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qj-w2-ttl">
-                                                    <rect key="frame" x="4" y="46" width="406" height="21.5"/>
+                                                    <rect key="frame" x="4" y="46.5" width="406" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="mMV-Ta-yfG"/>
                                                     </constraints>
@@ -180,7 +182,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtZ-h2-iw7">
-                                                    <rect key="frame" x="4" y="15" width="406" height="21"/>
+                                                    <rect key="frame" x="4" y="15" width="406" height="21.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="f1o-rJ-nyb"/>
                                                     </constraints>
