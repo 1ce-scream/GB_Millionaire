@@ -8,13 +8,13 @@
 import UIKit
 
 class GameVC: UIViewController {
-
+    
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!
     @IBOutlet weak var answerButton3: UIButton!
     @IBOutlet weak var answerButton4: UIButton!
-   
+    
     let gameSession = GameSession()
     let questions = Questions.questions
     var buttonsArray = [UIButton]()
@@ -78,17 +78,13 @@ class GameVC: UIViewController {
         guard
             questionNumber < questions.count
         else {
-            gameEnd()
+            Game.shared.gameEnd()
+            self.dismiss(animated: true, completion: nil)
             return
         }
         setQuestionText(questionNumber)
         setAnswersText(questionNumber)
         setIsRightAnswer(questionNumber)
-    }
-    
-    private func gameEnd() {
-        Game.shared.gameEnd()
-        self.dismiss(animated: true, completion: nil)
     }
     
     @objc private func buttonAction(_ sender: UIButton) {
@@ -97,7 +93,8 @@ class GameVC: UIViewController {
             gameSession.appendRightAnswer()
             nextQuestions()
         } else {
-            gameEnd()
+            Game.shared.gameEnd()
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }
