@@ -144,7 +144,6 @@
                         <outlet property="answerButton2" destination="XT8-IL-MqU" id="fGe-L2-pRO"/>
                         <outlet property="answerButton3" destination="iwm-kJ-WJE" id="ATG-6O-YdS"/>
                         <outlet property="answerButton4" destination="6yg-TK-rOF" id="BMV-8a-Hsz"/>
-                        <outlet property="buttonStack" destination="UUS-lq-fIZ" id="Cej-ra-DUk"/>
                         <outlet property="questionLabel" destination="S8H-iP-27h" id="6mR-aF-9CG"/>
                     </connections>
                 </viewController>
@@ -164,7 +163,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Ddd-g5-U1W">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordsCell" id="Ddd-g5-U1W" customClass="RecordsTVCell" customModule="GB_Millionaire" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="71.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ddd-g5-U1W" id="IDw-Ja-osD">
@@ -200,6 +199,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="mtZ-h2-iw7" secondAttribute="trailing" constant="4" id="Z9O-9j-z2T"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="percentOfRightAnswersLabel" destination="4Qj-w2-ttl" id="Y4M-YH-FIM"/>
+                                            <outlet property="rightAnswersCountLabel" destination="mtZ-h2-iw7" id="J9L-Sn-ARW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

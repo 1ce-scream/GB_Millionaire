@@ -14,8 +14,7 @@ class GameVC: UIViewController {
     @IBOutlet weak var answerButton2: UIButton!
     @IBOutlet weak var answerButton3: UIButton!
     @IBOutlet weak var answerButton4: UIButton!
-    @IBOutlet weak var buttonStack: UIStackView!
-    
+   
     let gameSession = GameSession()
     let questions = Questions.questions
     var buttonsArray = [UIButton]()
@@ -26,6 +25,7 @@ class GameVC: UIViewController {
         super.viewDidLoad()
         
         Game.shared.gameSession = gameSession
+        gameSession.allQuestions = questions.count
         makeButtonsArray()
         setActionForButtons()
         setQuestionText(questionNumber)
@@ -75,13 +75,18 @@ class GameVC: UIViewController {
     
     private func nextQuestions() {
         questionNumber += 1
-        guard questionNumber < questions.count else { endGame(); return }
+        guard
+            questionNumber < questions.count
+        else {
+            gameEnd()
+            return
+        }
         setQuestionText(questionNumber)
         setAnswersText(questionNumber)
         setIsRightAnswer(questionNumber)
     }
     
-    private func endGame() {
+    private func gameEnd() {
         Game.shared.gameEnd()
         self.dismiss(animated: true, completion: nil)
     }
@@ -89,9 +94,10 @@ class GameVC: UIViewController {
     @objc private func buttonAction(_ sender: UIButton) {
         guard let text = sender.currentTitle else { return }
         if isRight == text {
+            gameSession.appendRightAnswer()
             nextQuestions()
         } else {
-            endGame()
+            gameEnd()
         }
     }
 }

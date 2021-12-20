@@ -21,6 +21,10 @@ class GameSession: GameSessionProtocol {
         rightAnswers += 1
     }
     
+    func appendQuestions() {
+        allQuestions += 1
+    }
+    
     init(question: Int) {
         allQuestions = question
     }

@@ -8,24 +8,45 @@
 import UIKit
 
 class RecordsVC: UIViewController {
-
+    
     @IBOutlet weak var recordsTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        recordsTable.delegate = self
+        recordsTable.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
+}
+
+extension RecordsVC: UITableViewDataSource {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int) -> Int {
+            
+            Game.shared.gameRecords.count
+        }
     
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            guard
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "recordsCell",
+                    for: indexPath) as? RecordsTVCell
+            else { return UITableViewCell() }
+            
+            let record = Game.shared.gameRecords[indexPath.row]
+            cell.configure(
+                rightAnswers: record.rightAnswersCount,
+                percent: record.rightPercent,
+                answersAmount: record.answersCount)
+            return cell
+        }
+    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+extension RecordsVC: UITableViewDelegate {
+    
 }

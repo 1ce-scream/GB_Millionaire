@@ -10,12 +10,15 @@ import Foundation
 class Game {
     static var shared = Game()
     private let recordsCaretaker = RecordCaretaker()
-    private var gameRecords: [GameRecord]
+    var gameRecords: [GameRecord]
     var gameSession: GameSession?
     
-    
     private init() {
-        self.gameRecords = recordsCaretaker.loadRecord()
+        self.gameRecords = self.recordsCaretaker.loadRecord()
+    }
+    
+    func saveRecord(_ record: GameRecord) {
+        self.gameRecords.append(record)
     }
     
     func gameEnd() {
