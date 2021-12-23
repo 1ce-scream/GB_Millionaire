@@ -14,11 +14,24 @@ class GameVC: UIViewController {
     @IBOutlet weak var answerButton2: UIButton!
     @IBOutlet weak var answerButton3: UIButton!
     @IBOutlet weak var answerButton4: UIButton!
+    @IBOutlet weak var progressLabel: UILabel!
     
     var gameSession: GameSessionProtocol!
     var buttonsArray = [UIButton]()
     var questionNumber = 0
     var isRight = ""
+    
+    var progressPercent: Int = 0 {
+        didSet {
+            changeProgress()
+        }
+    }
+    
+    var countInfo: Int = 0 {
+        didSet {
+            changeProgress()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +41,8 @@ class GameVC: UIViewController {
         setQuestionText(questionNumber)
         setAnswersText(questionNumber)
         setIsRightAnswer(questionNumber)
+        setObserver()
+        changeProgress()
     }
     
     private func makeButtonsArray() {
@@ -37,7 +52,7 @@ class GameVC: UIViewController {
         buttonsArray.append(answerButton4)
     }
     private func setQuestionText(_ questionNumber: Int) {
-        let question = gameSession.questions[questionNumber]//questions[questionNumber]
+        let question = gameSession.questions[questionNumber]
         questionLabel.text = question.question
     }
     
@@ -72,6 +87,8 @@ class GameVC: UIViewController {
     
     private func nextQuestions() {
         questionNumber += 1
+        gameSession.calcPercent()
+        gameSession.currentQuestion.value += 1
         guard
             questionNumber < gameSession.questions.count
         else {
@@ -82,6 +99,24 @@ class GameVC: UIViewController {
         setQuestionText(questionNumber)
         setAnswersText(questionNumber)
         setIsRightAnswer(questionNumber)
+    }
+    
+    private func setObserver() {
+        gameSession.rightAnswersPercent.addObserver(self, options: [.new]) {
+            percent, _ in
+            self.progressPercent = percent
+        }
+        gameSession.currentQuestion.addObserver(self, options: [.new]) {
+            questionID, _ in
+            self.countInfo = questionID
+        }
+    }
+    
+    private func changeProgress() {
+        let count = self.countInfo
+        var countWord = count == 1 ? "вопрос" : "вопроса"
+        countWord = (count > 4 || count == 0) ? "вопросов" : countWord
+        progressLabel.text = "На \(count) \(countWord) вы дали \(self.progressPercent)% правильных ответов"
     }
     
     @objc private func buttonAction(_ sender: UIButton) {
