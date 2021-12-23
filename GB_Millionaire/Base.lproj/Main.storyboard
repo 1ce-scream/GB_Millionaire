@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPS-d4-xoq">
-                                <rect key="frame" x="121" y="440" width="172" height="40"/>
+                                <rect key="frame" x="121" y="400" width="172" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Zjv-eQ-3YR"/>
                                 </constraints>
@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQ6-on-fDr">
-                                <rect key="frame" x="124.5" y="530" width="165" height="40"/>
+                                <rect key="frame" x="124.5" y="490" width="165" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="IOn-VO-r4Y"/>
                                 </constraints>
@@ -55,6 +55,19 @@
                                     <segue destination="Ixu-NG-WYa" kind="show" id="DpE-pm-1V6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14O-Vi-IK1">
+                                <rect key="frame" x="83.5" y="580" width="247" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="qiY-lm-4Mc"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Добавить вопрос">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="27"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="jqc-Mc-gQ7" kind="show" id="vu1-aL-5v8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -63,8 +76,10 @@
                             <constraint firstItem="gPS-d4-xoq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9qb-JG-uAh"/>
                             <constraint firstItem="fQ6-on-fDr" firstAttribute="top" secondItem="gPS-d4-xoq" secondAttribute="bottom" constant="50" id="KrA-4J-fq8"/>
                             <constraint firstItem="fQ6-on-fDr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KyJ-Ib-JkX"/>
+                            <constraint firstItem="14O-Vi-IK1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cOh-9n-2vI"/>
                             <constraint firstItem="tWy-ps-A0a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="266" id="m9I-kq-b1e"/>
-                            <constraint firstItem="gPS-d4-xoq" firstAttribute="top" secondItem="tWy-ps-A0a" secondAttribute="bottom" constant="90" id="n5Y-JV-BVB"/>
+                            <constraint firstItem="gPS-d4-xoq" firstAttribute="top" secondItem="tWy-ps-A0a" secondAttribute="bottom" constant="50" id="n5Y-JV-BVB"/>
+                            <constraint firstItem="14O-Vi-IK1" firstAttribute="top" secondItem="fQ6-on-fDr" secondAttribute="bottom" constant="50" id="za8-5v-cGx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6dR-Xl-w7c"/>
@@ -77,20 +92,92 @@
             </objects>
             <point key="canvasLocation" x="121.73913043478262" y="123.88392857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Add QuestionVC-->
         <scene sceneID="lMZ-bd-V1l">
             <objects>
-                <viewController id="jqc-Mc-gQ7" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="jqc-Mc-gQ7" customClass="AddQuestionVC" customModule="GB_Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mjh-iS-HHx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Текст вопроса" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zM5-GL-WH4">
+                                <rect key="frame" x="10" y="94" width="394" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="7hV-az-sV4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ответ 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="usR-es-5VN">
+                                <rect key="frame" x="10" y="214" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ответ 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p9e-O6-d8N">
+                                <rect key="frame" x="10" y="342" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ответ 4" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Sk-bP-2nU">
+                                <rect key="frame" x="10" y="406" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXZ-N3-FA0">
+                                <rect key="frame" x="163" y="554" width="88.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Добавить"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ответ 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t64-rm-Oe1">
+                                <rect key="frame" x="10" y="278" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Номер правильного ответа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71d-4e-hla">
+                                <rect key="frame" x="10" y="470" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rlk-TT-cjc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rlk-TT-cjc" firstAttribute="trailing" secondItem="t64-rm-Oe1" secondAttribute="trailing" constant="10" id="3gt-P1-TUo"/>
+                            <constraint firstItem="p9e-O6-d8N" firstAttribute="leading" secondItem="rlk-TT-cjc" secondAttribute="leading" constant="10" id="ApN-d3-hcn"/>
+                            <constraint firstItem="1Sk-bP-2nU" firstAttribute="top" secondItem="p9e-O6-d8N" secondAttribute="bottom" constant="30" id="CUu-Yf-lBE"/>
+                            <constraint firstItem="usR-es-5VN" firstAttribute="top" secondItem="zM5-GL-WH4" secondAttribute="bottom" constant="30" id="FIv-BO-mJY"/>
+                            <constraint firstItem="zM5-GL-WH4" firstAttribute="top" secondItem="rlk-TT-cjc" secondAttribute="top" constant="50" id="IFd-To-Qaa"/>
+                            <constraint firstItem="rlk-TT-cjc" firstAttribute="trailing" secondItem="usR-es-5VN" secondAttribute="trailing" constant="10" id="LSv-qC-yRL"/>
+                            <constraint firstItem="rlk-TT-cjc" firstAttribute="trailing" secondItem="p9e-O6-d8N" secondAttribute="trailing" constant="10" id="McQ-ZH-651"/>
+                            <constraint firstItem="rlk-TT-cjc" firstAttribute="trailing" secondItem="1Sk-bP-2nU" secondAttribute="trailing" constant="10" id="QWA-Wh-zmt"/>
+                            <constraint firstItem="rlk-TT-cjc" firstAttribute="trailing" secondItem="71d-4e-hla" secondAttribute="trailing" constant="10" id="Qlt-77-XZD"/>
+                            <constraint firstItem="usR-es-5VN" firstAttribute="leading" secondItem="rlk-TT-cjc" secondAttribute="leading" constant="10" id="X8N-a8-dgz"/>
+                            <constraint firstItem="zM5-GL-WH4" firstAttribute="leading" secondItem="rlk-TT-cjc" secondAttribute="leading" constant="10" id="aDO-sY-jgd"/>
+                            <constraint firstItem="t64-rm-Oe1" firstAttribute="leading" secondItem="rlk-TT-cjc" secondAttribute="leading" constant="10" id="aof-y2-aaM"/>
+                            <constraint firstItem="p9e-O6-d8N" firstAttribute="top" secondItem="t64-rm-Oe1" secondAttribute="bottom" constant="30" id="bcb-cZ-xWg"/>
+                            <constraint firstItem="rlk-TT-cjc" firstAttribute="trailing" secondItem="zM5-GL-WH4" secondAttribute="trailing" constant="10" id="gSg-f5-BUh"/>
+                            <constraint firstItem="71d-4e-hla" firstAttribute="top" secondItem="1Sk-bP-2nU" secondAttribute="bottom" constant="30" id="jiC-pY-ec8"/>
+                            <constraint firstItem="zXZ-N3-FA0" firstAttribute="centerX" secondItem="Mjh-iS-HHx" secondAttribute="centerX" id="kCO-8W-gbN"/>
+                            <constraint firstItem="t64-rm-Oe1" firstAttribute="top" secondItem="usR-es-5VN" secondAttribute="bottom" constant="30" id="mr6-eJ-1eg"/>
+                            <constraint firstItem="zXZ-N3-FA0" firstAttribute="top" secondItem="71d-4e-hla" secondAttribute="bottom" constant="50" id="qJm-OC-LBO"/>
+                            <constraint firstItem="71d-4e-hla" firstAttribute="leading" secondItem="rlk-TT-cjc" secondAttribute="leading" constant="10" id="sKc-CZ-Q3a"/>
+                            <constraint firstItem="1Sk-bP-2nU" firstAttribute="leading" secondItem="rlk-TT-cjc" secondAttribute="leading" constant="10" id="zJe-fO-EFR"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="cXR-wO-N1V"/>
+                    <connections>
+                        <outlet property="addButton" destination="zXZ-N3-FA0" id="gqe-JB-RNJ"/>
+                        <outlet property="answer1Textfield" destination="usR-es-5VN" id="4cu-x5-hh1"/>
+                        <outlet property="answer2TextField" destination="t64-rm-Oe1" id="edn-QI-Xm8"/>
+                        <outlet property="answer3TextField" destination="p9e-O6-d8N" id="Sht-ye-6AB"/>
+                        <outlet property="answer4TextField" destination="1Sk-bP-2nU" id="1MP-0v-k1I"/>
+                        <outlet property="numberOfRightAnswer" destination="71d-4e-hla" id="kEd-hL-pGQ"/>
+                        <outlet property="questionTextField" destination="zM5-GL-WH4" id="VYl-Tg-HHC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAj-08-YET" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="110" y="-532"/>
+            <point key="canvasLocation" x="108.69565217391305" y="-532.36607142857144"/>
         </scene>
         <!--Игра-->
         <scene sceneID="cvS-Fk-pux">

@@ -12,10 +12,12 @@ class MainVC: UIViewController {
     @IBOutlet var startButton: UIView!
     @IBOutlet weak var resultButton: UIButton!
     
+    let questionCaretaker = QuestionsCaretaker()
     var actualQuestions: [Question] = []
     
     override func viewDidAppear(_ animated: Bool) {
-        actualQuestions = Questions.questions
+        let userQuestions = questionCaretaker.loadUserQuestions()
+        actualQuestions = Questions.questions + userQuestions
     }
     
     override func viewDidLoad() {

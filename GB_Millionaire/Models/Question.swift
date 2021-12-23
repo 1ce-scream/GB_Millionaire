@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Question {
+struct Question: Codable {
     let question: String
     let answerOptions: [Answers]
 }
 
-struct Answers {
+struct Answers: Codable {
     var title: String
     var isRight: Bool
 }
