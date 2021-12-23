@@ -10,11 +10,18 @@ import Foundation
 class Game {
     static var shared = Game()
     private let recordsCaretaker = RecordCaretaker()
+    private let randomSettingCaretaker = RandomSettingCaretaker()
     var gameRecords: [GameRecord]
     var gameSession: GameSession?
+    var questionsOrder: QuestionOrder = .random {
+        didSet {
+            randomSettingCaretaker.saveOrder(showQuestionsRandom: self.questionsOrder)
+        }
+    }
     
     private init() {
         self.gameRecords = self.recordsCaretaker.loadRecord()
+        self.questionsOrder = randomSettingCaretaker.loadOrder()
     }
     
     func saveRecord(_ record: GameRecord) {
@@ -25,7 +32,7 @@ class Game {
         guard let gameSession = gameSession else { return }
         gameRecords.append(
             GameRecord(rightAnswersCount: gameSession.rightAnswers,
-                       answersCount: gameSession.allQuestions))
+                       answersCount: gameSession.questionCount))
         self.gameSession = nil
         recordsCaretaker.saveRecord(gameRecord: Game.shared.gameRecords)
     }

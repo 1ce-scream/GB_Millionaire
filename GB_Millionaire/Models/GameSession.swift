@@ -8,24 +8,28 @@
 import Foundation
 
 protocol GameSessionProtocol {
-    var allQuestions: Int { get set }
+    var questionCount: Int { get }
+    var questions: [Question] { get }
     func appendRightAnswer()
 }
 
 class GameSession: GameSessionProtocol {
 
-    var allQuestions: Int = 0
+    var questionCount: Int { self.questions.count }
     var rightAnswers : Int = 0
+    var isRandomStrategy: IsRandomStrategyProtocol
+    let questions: [Question]
     
     func appendRightAnswer() {
         rightAnswers += 1
     }
     
-    init(question: Int) {
-        allQuestions = question
+    init(questions: [Question], isRandomStrategy: IsRandomStrategyProtocol) {
+        self.isRandomStrategy = isRandomStrategy
+        self.questions = self.isRandomStrategy.prepareQuestions(questions)
     }
 
-    convenience init() {
-        self.init(question: 0)
-    }
+//    convenience init() {
+//        self.init(questionCount: 0, questions: [])
+//    }
 }

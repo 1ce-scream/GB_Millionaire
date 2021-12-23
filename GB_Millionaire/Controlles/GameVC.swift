@@ -15,8 +15,7 @@ class GameVC: UIViewController {
     @IBOutlet weak var answerButton3: UIButton!
     @IBOutlet weak var answerButton4: UIButton!
     
-    let gameSession = GameSession()
-    let questions = Questions.questions
+    var gameSession: GameSessionProtocol!
     var buttonsArray = [UIButton]()
     var questionNumber = 0
     var isRight = ""
@@ -24,8 +23,6 @@ class GameVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Game.shared.gameSession = gameSession
-        gameSession.allQuestions = questions.count
         makeButtonsArray()
         setActionForButtons()
         setQuestionText(questionNumber)
@@ -40,12 +37,12 @@ class GameVC: UIViewController {
         buttonsArray.append(answerButton4)
     }
     private func setQuestionText(_ questionNumber: Int) {
-        let question = questions[questionNumber]
+        let question = gameSession.questions[questionNumber]//questions[questionNumber]
         questionLabel.text = question.question
     }
     
     private func setAnswersText(_ questionNumber: Int) {
-        let question = questions[questionNumber]
+        let question = gameSession.questions[questionNumber]
         var answerNumber = 0
         
         buttonsArray.forEach { button in
@@ -57,7 +54,7 @@ class GameVC: UIViewController {
     }
     
     private func setIsRightAnswer(_ questionNumber: Int) {
-        let answers = questions[questionNumber].answerOptions
+        let answers = gameSession.questions[questionNumber].answerOptions
         answers.forEach { answer in
             if answer.isRight {
                 isRight = answer.title
@@ -76,7 +73,7 @@ class GameVC: UIViewController {
     private func nextQuestions() {
         questionNumber += 1
         guard
-            questionNumber < questions.count
+            questionNumber < gameSession.questions.count
         else {
             Game.shared.gameEnd()
             self.dismiss(animated: true, completion: nil)

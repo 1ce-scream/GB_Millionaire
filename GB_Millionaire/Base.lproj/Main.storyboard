@@ -11,7 +11,7 @@
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="GB_Millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="MainVC" customModule="GB_Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,16 +42,32 @@
                                     <segue destination="tRI-Pq-maT" kind="show" id="5xG-gG-noQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQ6-on-fDr">
+                                <rect key="frame" x="124.5" y="530" width="165" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="IOn-VO-r4Y"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Настройки">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="27"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="Ixu-NG-WYa" kind="show" id="DpE-pm-1V6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tWy-ps-A0a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6xl-de-J6d"/>
                             <constraint firstItem="gPS-d4-xoq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9qb-JG-uAh"/>
+                            <constraint firstItem="fQ6-on-fDr" firstAttribute="top" secondItem="gPS-d4-xoq" secondAttribute="bottom" constant="50" id="KrA-4J-fq8"/>
+                            <constraint firstItem="fQ6-on-fDr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KyJ-Ib-JkX"/>
                             <constraint firstItem="tWy-ps-A0a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="266" id="m9I-kq-b1e"/>
                             <constraint firstItem="gPS-d4-xoq" firstAttribute="top" secondItem="tWy-ps-A0a" secondAttribute="bottom" constant="90" id="n5Y-JV-BVB"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="6dR-Xl-w7c"/>
                     <connections>
                         <outlet property="resultButton" destination="gPS-d4-xoq" id="Lsc-o0-0QM"/>
                         <outlet property="startButton" destination="8bC-Xf-vdC" id="JPS-MA-IxU"/>
@@ -61,7 +77,7 @@
             </objects>
             <point key="canvasLocation" x="121.73913043478262" y="123.88392857142857"/>
         </scene>
-        <!--GameVC-->
+        <!--Игра-->
         <scene sceneID="cvS-Fk-pux">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="hrV-cN-GsQ" customClass="GameVC" customModule="GB_Millionaire" customModuleProvider="target" sceneMemberID="viewController">
@@ -137,7 +153,7 @@
                             <constraint firstItem="UUS-lq-fIZ" firstAttribute="leading" secondItem="jvX-zd-tUU" secondAttribute="leading" constant="10" id="zxa-zv-zxG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="LO2-jx-Vi8">
+                    <navigationItem key="navigationItem" title="Игра" id="LO2-jx-Vi8">
                         <barButtonItem key="backBarButtonItem" title="Назад" id="7zo-0K-HMM"/>
                     </navigationItem>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -152,6 +168,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVd-tM-PIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1099" y="-210"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="kYf-ew-vuy">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="Ixu-NG-WYa" customClass="SettingsVC" customModule="GB_Millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jtn-xk-3dX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Случайный порядок вопросов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOX-Wa-b20">
+                                <rect key="frame" x="20" y="174" width="266" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpD-FN-Gtj">
+                                <rect key="frame" x="20" y="44" width="66" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Назад"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="lPq-dZ-rdU"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A6B-17-moJ">
+                                <rect key="frame" x="335" y="169" width="51" height="31"/>
+                            </switch>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6gE-f6-dEB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xOX-Wa-b20" firstAttribute="leading" secondItem="6gE-f6-dEB" secondAttribute="leading" constant="20" id="Bl7-o2-gBg"/>
+                            <constraint firstItem="xOX-Wa-b20" firstAttribute="top" secondItem="6gE-f6-dEB" secondAttribute="top" constant="130" id="Cjo-GD-b4p"/>
+                            <constraint firstItem="HpD-FN-Gtj" firstAttribute="leading" secondItem="6gE-f6-dEB" secondAttribute="leading" constant="20" id="QiZ-fO-wKL"/>
+                            <constraint firstItem="6gE-f6-dEB" firstAttribute="trailing" secondItem="A6B-17-moJ" secondAttribute="trailing" constant="30" id="ZwQ-vD-y7r"/>
+                            <constraint firstItem="A6B-17-moJ" firstAttribute="top" secondItem="6gE-f6-dEB" secondAttribute="top" constant="125" id="cC0-EB-j1o"/>
+                            <constraint firstItem="HpD-FN-Gtj" firstAttribute="top" secondItem="6gE-f6-dEB" secondAttribute="top" id="gmD-zV-YrH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HdC-6S-wUA"/>
+                    <connections>
+                        <outlet property="orderSwitch" destination="A6B-17-moJ" id="JtS-7M-xHl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NkV-ug-H4j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="789"/>
         </scene>
         <!--RecordsVC-->
         <scene sceneID="QMA-lP-sru">
@@ -232,6 +294,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
