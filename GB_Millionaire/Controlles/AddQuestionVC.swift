@@ -77,11 +77,11 @@ class AddQuestionVC: UIViewController {
             case 1:
                 answerOptions[0].isRight = true
             case 2:
-                answerOptions[0].isRight = true
+                answerOptions[1].isRight = true
             case 3:
-                answerOptions[0].isRight = true
+                answerOptions[2].isRight = true
             case 4:
-                answerOptions[0].isRight = true
+                answerOptions[3].isRight = true
             default:
                 let alert = UIAlertController(
                     title: "Ошибка",
