@@ -18,6 +18,7 @@ class AddQuestionVC: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     
     let questionCaretaker = QuestionsCaretaker()
+    let questionBuilder = QuestionsBuilder()
     var textFields: [UITextField] = []
     var isTextFieldEmpty = false
     
@@ -36,6 +37,18 @@ class AddQuestionVC: UIViewController {
         textFields.append(answer4TextField)
     }
     
+    private func inputError() {
+        let alert = UIAlertController(
+            title: "Ошибка",
+            message: "Некорректно введенные данные",
+            preferredStyle: .alert)
+        let alertAction = UIAlertAction(
+            title: "ОК",
+            style: .cancel)
+        alert.addAction(alertAction)
+        present(alert, animated: true)
+    }
+    
     @objc
     private func addPressed() {
         textFields.forEach { textField in
@@ -45,62 +58,38 @@ class AddQuestionVC: UIViewController {
         }
         if isTextFieldEmpty {
             isTextFieldEmpty = false
-            let alert = UIAlertController(
-                title: "Ошибка",
-                message: "Заполните все поля",
-                preferredStyle: .alert)
-            let alertAction = UIAlertAction(
-                title: "ОК",
-                style: .cancel)
-            alert.addAction(alertAction)
-            present(alert, animated: true)
+            inputError()
         } else if numberOfRightAnswer.text == "" {
-            let alert = UIAlertController(
-                title: "Ошибка",
-                message: "Введите номер правильного ответа",
-                preferredStyle: .alert)
-            let alertAction = UIAlertAction(
-                title: "ОК",
-                style: .cancel)
-            alert.addAction(alertAction)
-            present(alert, animated: true)
+            inputError()
         } else {
-            
-            var answerOptions = [
-                Answers(title: answer1Textfield.text!, isRight: false),
-                Answers(title: answer2TextField.text!, isRight: false),
-                Answers(title: answer3TextField.text!, isRight: false),
-                Answers(title: answer4TextField.text!, isRight: false),
+            let questionText = questionTextField.text!
+            let answerText = [
+                answer1Textfield.text!,
+                answer2TextField.text!,
+                answer3TextField.text!,
+                answer4TextField.text!,
             ]
-            let isTrue = Int(numberOfRightAnswer.text!)
-            switch isTrue {
-            case 1:
-                answerOptions[0].isRight = true
-            case 2:
-                answerOptions[1].isRight = true
-            case 3:
-                answerOptions[2].isRight = true
-            case 4:
-                answerOptions[3].isRight = true
-            default:
-                let alert = UIAlertController(
-                    title: "Ошибка",
-                    message: "Введите корректый номер правильного ответа",
-                    preferredStyle: .alert)
-                let alertAction = UIAlertAction(
-                    title: "ОК",
-                    style: .cancel)
-                alert.addAction(alertAction)
-                present(alert, animated: true)
+            
+            questionBuilder.setQuestionText(questionText)
+            answerText.forEach { answerText in
+                questionBuilder.setAnswerText(answerText)
+            }
+
+            guard
+                let rightNumber = Int(numberOfRightAnswer.text!)
+            else {
+                inputError()
+                return
             }
             
-            let question = Question(
-                question: questionTextField.text!,
-                answerOptions: answerOptions
-            )
-            
-            questionCaretaker.saveUserQuestion(userQuestion: question)
-            self.dismiss(animated: true, completion: nil)
+            if rightNumber < 5 && rightNumber > 0 {
+                questionBuilder.setRightAnswer(rightNumber)
+                let question = questionBuilder.build()
+                questionCaretaker.saveUserQuestion(userQuestion: question)
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                inputError()
+            }
         }
     }
     /*

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FEE444F72774E82600CF50ED /* QuestionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE444F62774E82600CF50ED /* QuestionsBuilder.swift */; };
 		FEEBF2AE277490F400F30B68 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBF2AD277490F400F30B68 /* SettingsVC.swift */; };
 		FEEBF2B42774960600F30B68 /* SettingsCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBF2B32774960600F30B68 /* SettingsCaretaker.swift */; };
 		FEEBF2B62774983500F30B68 /* QuestionOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBF2B52774983500F30B68 /* QuestionOrder.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FEE444F62774E82600CF50ED /* QuestionsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsBuilder.swift; sourceTree = "<group>"; };
 		FEEBF2AD277490F400F30B68 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		FEEBF2B32774960600F30B68 /* SettingsCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCaretaker.swift; sourceTree = "<group>"; };
 		FEEBF2B52774983500F30B68 /* QuestionOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionOrder.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FEE444F52774E80100CF50ED /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				FEE444F62774E82600CF50ED /* QuestionsBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		FEEBF2AF2774920200F30B68 /* Strategy */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +130,7 @@
 				FEEBF2B92774AF1400F30B68 /* Observable */,
 				FEEBF2B2277495D700F30B68 /* Memento */,
 				FEEBF2AF2774920200F30B68 /* Strategy */,
+				FEE444F52774E80100CF50ED /* Builder */,
 				FEF753322770A25C00C9FF08 /* Models */,
 				FEF7532F2770984300C9FF08 /* Controlles */,
 				FEF403A7276E3EBC0082276B /* Main.storyboard */,
@@ -229,6 +240,7 @@
 				FEEBF2BB2774AF3300F30B68 /* Observable.swift in Sources */,
 				FEF7533C2770B2E300C9FF08 /* RecordsVC.swift in Sources */,
 				FEEBF2BF2774C0AC00F30B68 /* QuestionCaretaker.swift in Sources */,
+				FEE444F72774E82600CF50ED /* QuestionsBuilder.swift in Sources */,
 				FEF753342770A27700C9FF08 /* Question.swift in Sources */,
 				FEEBF2B8277498DF00F30B68 /* QuestionsOrderStrategy.swift in Sources */,
 				FEF753362770A67A00C9FF08 /* Game.swift in Sources */,
